@@ -1,26 +1,23 @@
-import { Button } from '@mui/material';
 import { useSelector, useDispatch } from 'react-redux';
 import { toggleTheme } from '../reducers/themeReducer';
+import { IconButton } from '@mui/material';
+import Brightness4Icon from '@mui/icons-material/Brightness4';
+import Brightness7Icon from '@mui/icons-material/Brightness7';
 
 const DarkModeButton = () => {
-  const currentTheme = useSelector((state) => state.theme);
+  const theme = useSelector((state) => state.theme);
   const dispatch = useDispatch();
 
   const toggleDarkMode = (event) => {
     event.preventDefault();
-    dispatch(toggleTheme(currentTheme));
+    dispatch(toggleTheme(theme));
   };
 
   return (
     <div>
-      <Button
-        color='inherit'
-        type='submit'
-        className='darkModeButton'
-        onClick={toggleDarkMode}
-      >
-        {currentTheme === 'light' ? 'dark' : 'light'}
-      </Button>
+      <IconButton sx={{ ml: 1 }} onClick={toggleDarkMode} color="inherit">
+        {theme === 'dark' ? <Brightness7Icon /> : <Brightness4Icon />}
+      </IconButton>
     </div>
   );
 };
