@@ -23,7 +23,13 @@ const path = {
 const App = () => {
   const user = useSelector((state) => state.user);
   const notification = useSelector((state) => state.notification);
+  const theme = useSelector((state) => state.theme);
   const dispatch = useDispatch();
+
+  // set theme
+  useEffect(() => {
+    document.body.className = theme;
+  }, [theme]);
 
   // check for logged in user when page loads
   useEffect(() => {
