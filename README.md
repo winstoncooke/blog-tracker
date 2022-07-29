@@ -1,3 +1,3 @@
-# fullstackopen-part7-blog-frontend
+# Blog Tracker Client
 
-Backend can be found [here](https://github.com/winstoncooke/fullstackopen-2022/tree/main/part7/blog/backend)
+Server can be found [here](https://github.com/winstoncooke/blog-tracker-server)
