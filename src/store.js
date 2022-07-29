@@ -4,6 +4,7 @@ import blogsReducer from './reducers/blogsReducer';
 import userReducer from './reducers/userReducer';
 import usersReducer from './reducers/usersReducer';
 import commentsReducer from './reducers/commentsReducer';
+import themeReducer from './reducers/themeReducer';
 
 const store = configureStore({
   reducer: {
@@ -12,6 +13,7 @@ const store = configureStore({
     user: userReducer,
     users: usersReducer,
     comments: commentsReducer,
+    theme: themeReducer,
   },
 });
 
