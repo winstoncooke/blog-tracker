@@ -14,12 +14,25 @@ import {
 
 const BlogList = () => {
   const blogs = useSelector((state) => state.blogs);
+  const filter = useSelector((state) => state.filter);
   const dispatch = useDispatch();
 
   // fetch blogs from server
   useEffect(() => {
     dispatch(getBlogs());
   }, [dispatch]);
+
+  const blogsToShow = filter
+    ? blogs.filter((blog) => {
+        if (
+          blog.title.toLowerCase().includes(filter.toLowerCase()) ||
+          blog.author.toLowerCase().includes(filter.toLowerCase())
+        ) {
+          return true;
+        }
+        return false;
+      })
+    : blogs;
 
   return (
     <div>
@@ -30,7 +43,7 @@ const BlogList = () => {
       <TableContainer component={Paper}>
         <Table>
           <TableBody>
-            {blogs.map((blog) => (
+            {blogsToShow.map((blog) => (
               <TableRow key={blog.id}>
                 <TableCell>
                   <Blog key={blog.id} blog={blog} />

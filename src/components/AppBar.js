@@ -10,11 +10,12 @@ import IconButton from '@mui/material/IconButton';
 import InputBase from '@mui/material/InputBase';
 import MenuItem from '@mui/material/MenuItem';
 import Menu from '@mui/material/Menu';
-import SearchIcon from '@mui/icons-material/Search';
+import FilterListIcon from '@mui/icons-material/FilterList';
 import AccountCircle from '@mui/icons-material/AccountCircle';
 import MoreIcon from '@mui/icons-material/MoreVert';
 import DarkModeSwitch from './DarkModeSwitch';
 import { logout } from '../reducers/userReducer';
+import { updateFilter } from '../reducers/filterReducer';
 
 const Search = styled('div')(({ theme }) => ({
   position: 'relative',
@@ -32,7 +33,7 @@ const Search = styled('div')(({ theme }) => ({
   },
 }));
 
-const SearchIconWrapper = styled('div')(({ theme }) => ({
+const FilterIconWrapper = styled('div')(({ theme }) => ({
   padding: theme.spacing(0, 2),
   height: '100%',
   position: 'absolute',
@@ -90,6 +91,10 @@ export default function PrimarySearchAppBar({
   const handleLogout = () => {
     handleMenuClose();
     dispatch(logout());
+  };
+
+  const handleFilter = (event) => {
+    dispatch(updateFilter(event.target.value));
   };
 
   const menuId = 'primary-search-account-menu';
@@ -165,15 +170,16 @@ export default function PrimarySearchAppBar({
           <Button color="inherit" component={Link} to={usersPath}>
             users
           </Button>
-          {/* <Search>
-            <SearchIconWrapper>
-              <SearchIcon />
-            </SearchIconWrapper>
+          <Search>
+            <FilterIconWrapper>
+              <FilterListIcon />
+            </FilterIconWrapper>
             <StyledInputBase
-              placeholder="Search…"
-              inputProps={{ 'aria-label': 'search' }}
+              placeholder="Filter"
+              inputProps={{ 'aria-label': 'filter' }}
+              onChange={handleFilter}
             />
-          </Search> */}
+          </Search>
           <Box sx={{ flexGrow: 1 }} />
           <Box sx={{ display: { xs: 'none', md: 'flex' } }}>
             <DarkModeSwitch />
