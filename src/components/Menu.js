@@ -2,7 +2,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { logout } from '../reducers/userReducer';
 import { AppBar, Button, IconButton, Toolbar } from '@mui/material';
-import DarkModeButton from './DarkModeButton';
+import DarkModeSwitch from './DarkModeSwitch';
 
 const Menu = ({ loginPath, blogsPath, usersPath }) => {
   const logoutStyle = {
@@ -19,34 +19,34 @@ const Menu = ({ loginPath, blogsPath, usersPath }) => {
   };
 
   return (
-    <AppBar position='static'>
+    <AppBar position="static">
       <Toolbar>
-        <IconButton edge='start' color='primary' aria-label='menu'></IconButton>
+        <IconButton edge="start" color="primary" aria-label="menu"></IconButton>
         {currentUser ? (
           <div>
             Logged in as <strong>{currentUser.name}</strong>
             <Button
-              color='inherit'
-              type='submit'
-              className='logoutButton'
+              color="inherit"
+              type="submit"
+              className="logoutButton"
               onClick={handleLogout}
             >
               <div style={logoutStyle}>(Logout)</div>
             </Button>
           </div>
         ) : (
-          <Button color='inherit' component={Link} to={loginPath}>
+          <Button color="inherit" component={Link} to={loginPath}>
             login
           </Button>
         )}
         &nbsp;|
-        <Button color='inherit' component={Link} to={blogsPath}>
+        <Button color="inherit" component={Link} to={blogsPath}>
           blogs
         </Button>
-        <Button color='inherit' component={Link} to={usersPath}>
+        <Button color="inherit" component={Link} to={usersPath}>
           users
         </Button>
-        <DarkModeButton />
+        <DarkModeSwitch />
       </Toolbar>
     </AppBar>
   );
