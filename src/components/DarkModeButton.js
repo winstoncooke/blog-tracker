@@ -19,7 +19,7 @@ const DarkModeButton = () => {
         className='darkModeButton'
         onClick={toggleDarkMode}
       >
-        {currentTheme === 'light' ? 'light' : 'dark'}
+        {currentTheme === 'light' ? 'dark' : 'light'}
       </Button>
     </div>
   );
