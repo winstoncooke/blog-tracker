@@ -1,7 +1,12 @@
 import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { Routes, Route, Navigate } from 'react-router-dom';
-import { Container } from '@mui/material';
+import {
+  ThemeProvider,
+  createTheme,
+  CssBaseline,
+  Container,
+} from '@mui/material';
 import { getUserFromLocal } from './reducers/userReducer';
 import Notification from './components/Notification';
 import Menu from './components/Menu';
@@ -26,6 +31,12 @@ const App = () => {
   const theme = useSelector((state) => state.theme);
   const dispatch = useDispatch();
 
+  const mainTheme = createTheme({
+    palette: {
+      mode: theme,
+    },
+  });
+
   // set theme
   useEffect(() => {
     document.body.className = theme;
@@ -37,27 +48,30 @@ const App = () => {
   }, [dispatch]);
 
   return (
-    <Container>
-      <Menu
-        loginPath={path.login}
-        blogsPath={path.blogs}
-        usersPath={path.users}
-      />
-      {notification && <Notification />}
-      <h1>Blogs</h1>
-
-      <Routes>
-        <Route path={path.home} element={<BlogList />} />
-        <Route
-          path={path.login}
-          element={user ? <Navigate to={'/'} /> : <LoginForm />}
+    <ThemeProvider theme={mainTheme}>
+      <CssBaseline />
+      <Container>
+        <Menu
+          loginPath={path.login}
+          blogsPath={path.blogs}
+          usersPath={path.users}
         />
-        <Route path={path.blogs} element={<BlogList />} />
-        <Route path={path.blog} element={<BlogDetail />} />
-        <Route path={path.users} element={<Users />} />
-        <Route path={path.user} element={<User />} />
-      </Routes>
-    </Container>
+        {notification && <Notification />}
+        <h1>Blogs</h1>
+
+        <Routes>
+          <Route path={path.home} element={<BlogList />} />
+          <Route
+            path={path.login}
+            element={user ? <Navigate to={'/'} /> : <LoginForm />}
+          />
+          <Route path={path.blogs} element={<BlogList />} />
+          <Route path={path.blog} element={<BlogDetail />} />
+          <Route path={path.users} element={<Users />} />
+          <Route path={path.user} element={<User />} />
+        </Routes>
+      </Container>
+    </ThemeProvider>
   );
 };
 
