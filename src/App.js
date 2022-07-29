@@ -11,7 +11,7 @@ import {
 import { getUserFromLocal } from './reducers/userReducer';
 import { updateTheme } from './reducers/themeReducer';
 import Notification from './components/Notification';
-import Menu from './components/Menu';
+import PrimarySearchAppBar from './components/AppBar';
 import LoginForm from './components/LoginForm';
 import BlogList from './components/BlogList';
 import BlogDetail from './components/BlogDetail';
@@ -55,7 +55,7 @@ const App = () => {
     <ThemeProvider theme={theme}>
       <CssBaseline />
       <Container>
-        <Menu
+        <PrimarySearchAppBar
           loginPath={path.login}
           blogsPath={path.blogs}
           usersPath={path.users}
