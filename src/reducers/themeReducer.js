@@ -7,13 +7,16 @@ const themeSlice = createSlice({
     setTheme(_state, action) {
       return action.payload;
     },
-    getTheme(state) {
-      return state.state;
-    },
   },
 });
 
-export const { setTheme, getTheme } = themeSlice.actions;
+export const { setTheme } = themeSlice.actions;
+
+export const updateTheme = (theme) => {
+  return (dispatch) => {
+    dispatch(setTheme(theme));
+  };
+};
 
 export const toggleTheme = (theme) => {
   return (dispatch) => {

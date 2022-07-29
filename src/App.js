@@ -6,8 +6,10 @@ import {
   createTheme,
   CssBaseline,
   Container,
+  useMediaQuery,
 } from '@mui/material';
 import { getUserFromLocal } from './reducers/userReducer';
+import { updateTheme } from './reducers/themeReducer';
 import Notification from './components/Notification';
 import Menu from './components/Menu';
 import LoginForm from './components/LoginForm';
@@ -26,21 +28,23 @@ const path = {
 };
 
 const App = () => {
+  const dispatch = useDispatch();
   const user = useSelector((state) => state.user);
   const notification = useSelector((state) => state.notification);
-  const theme = useSelector((state) => state.theme);
-  const dispatch = useDispatch();
+  const currentTheme = useSelector((state) => state.theme);
+  const prefersDarkMode = useMediaQuery('(prefers-color-scheme: dark)');
+  const initialTheme = prefersDarkMode ? 'dark' : 'light';
 
-  const mainTheme = createTheme({
+  const theme = createTheme({
     palette: {
-      mode: theme,
+      mode: currentTheme,
     },
   });
 
-  // set theme
+  // set current theme
   useEffect(() => {
-    document.body.className = theme;
-  }, [theme]);
+    dispatch(updateTheme(initialTheme));
+  }, [dispatch, initialTheme]);
 
   // check for logged in user when page loads
   useEffect(() => {
@@ -48,7 +52,7 @@ const App = () => {
   }, [dispatch]);
 
   return (
-    <ThemeProvider theme={mainTheme}>
+    <ThemeProvider theme={theme}>
       <CssBaseline />
       <Container>
         <Menu
