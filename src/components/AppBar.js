@@ -165,7 +165,7 @@ export default function PrimarySearchAppBar({
           <Button color="inherit" component={Link} to={usersPath}>
             users
           </Button>
-          <Search>
+          {/* <Search>
             <SearchIconWrapper>
               <SearchIcon />
             </SearchIconWrapper>
@@ -173,7 +173,7 @@ export default function PrimarySearchAppBar({
               placeholder="Search…"
               inputProps={{ 'aria-label': 'search' }}
             />
-          </Search>
+          </Search> */}
           <Box sx={{ flexGrow: 1 }} />
           <Box sx={{ display: { xs: 'none', md: 'flex' } }}>
             <DarkModeSwitch />
