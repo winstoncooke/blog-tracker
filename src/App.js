@@ -41,7 +41,7 @@ const App = () => {
     },
   });
 
-  // set current theme
+  // set initial theme
   useEffect(() => {
     dispatch(updateTheme(initialTheme));
   }, [dispatch, initialTheme]);
