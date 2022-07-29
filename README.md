@@ -1,3 +1,3 @@
-# Full Stack Open 2022
+# fullstackopen-part7-blog-frontend
 
-This is my repository for completing the [Full Stack Open 2022](https://fullstackopen.com/en/) course.
+Backend can be found [here](https://github.com/winstoncooke/fullstackopen-2022/tree/main/part7/blog/backend)
