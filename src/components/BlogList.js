@@ -2,6 +2,7 @@ import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { getBlogs } from '../reducers/blogsReducer';
 import BlogFormLabel from './BlogFormLabel';
+import BlogFilter from './BlogFilter';
 import Blog from './Blog';
 import {
   Table,
@@ -37,9 +38,9 @@ const BlogList = () => {
   return (
     <div>
       <BlogFormLabel />
-
       <br></br>
-
+      <BlogFilter />
+      <br></br>
       <TableContainer component={Paper}>
         <Table>
           <TableBody>
