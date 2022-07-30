@@ -2,6 +2,7 @@ import { useDispatch } from 'react-redux';
 import { useField } from '../hooks';
 import { login } from '../reducers/userReducer';
 import { TextField, Button } from '@mui/material';
+import { Link } from 'react-router-dom';
 
 const LoginForm = () => {
   const dispatch = useDispatch();
@@ -15,23 +16,27 @@ const LoginForm = () => {
 
   return (
     <div>
-      <h2>Login</h2>
+      <h3>Login to your account</h3>
 
       <form onSubmit={handleLogin}>
         <div>
-          <TextField label="username" {...username.props} />
+          <TextField label='username' {...username.props} />
         </div>
         <br></br>
         <div>
-          <TextField label="password" type="password" {...password.props} />
+          <TextField label='password' type='password' {...password.props} />
         </div>
         <br></br>
         <div>
-          <Button variant="contained" color="primary" type="submit">
+          <Button variant='contained' color='primary' type='submit'>
             login
           </Button>
         </div>
       </form>
+      <br></br>
+      <div>
+        New to Blog Tracker? <Link to={'/register'}>Sign Up</Link>
+      </div>
     </div>
   );
 };

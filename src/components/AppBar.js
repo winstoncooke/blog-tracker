@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
@@ -20,6 +20,7 @@ export default function PrimarySearchAppBar({
 }) {
   const user = useSelector((state) => state.user);
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const [anchorEl, setAnchorEl] = useState(null);
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = useState(null);
@@ -47,6 +48,7 @@ export default function PrimarySearchAppBar({
   const handleLogout = () => {
     handleMenuClose();
     dispatch(logout());
+    navigate('/');
   };
 
   const menuId = 'primary-search-account-menu';
@@ -95,12 +97,12 @@ export default function PrimarySearchAppBar({
       onClose={handleMobileMenuClose}
     >
       <MenuItem>
-        <Button edge="start" color="inherit" component={Link} to={blogsPath}>
+        <Button edge='start' color='inherit' component={Link} to={blogsPath}>
           blogs
         </Button>
       </MenuItem>
       <MenuItem>
-        <Button color="inherit" component={Link} to={usersPath}>
+        <Button color='inherit' component={Link} to={usersPath}>
           users
         </Button>
       </MenuItem>
@@ -109,22 +111,22 @@ export default function PrimarySearchAppBar({
 
   return (
     <Box sx={{ flexGrow: 1 }}>
-      <AppBar position="static">
+      <AppBar position='static'>
         <Toolbar>
           {user ? (
             <IconButton
-              size="large"
-              edge="start"
-              aria-label="account of current user"
+              size='large'
+              edge='start'
+              aria-label='account of current user'
               aria-controls={menuId}
-              aria-haspopup="true"
+              aria-haspopup='true'
               onClick={handleProfileMenuOpen}
-              color="inherit"
+              color='inherit'
             >
               <AccountCircle />
             </IconButton>
           ) : (
-            <Button color="inherit" component={Link} to={loginPath}>
+            <Button color='inherit' component={Link} to={loginPath}>
               login
             </Button>
           )}
@@ -132,22 +134,22 @@ export default function PrimarySearchAppBar({
           <DarkModeSwitch />
           <Box sx={{ display: { xs: 'flex', md: 'none' } }}>
             <IconButton
-              size="large"
-              aria-label="show more"
+              size='large'
+              aria-label='show more'
               aria-controls={mobileMenuId}
-              aria-haspopup="true"
+              aria-haspopup='true'
               onClick={handleMobileMenuOpen}
-              color="inherit"
+              color='inherit'
             >
               <MoreIcon />
             </IconButton>
           </Box>
           <Box sx={{ flexGrow: 1 }} />
           <Box sx={{ display: { xs: 'none', md: 'flex' } }}>
-            <Button color="inherit" component={Link} to={blogsPath}>
+            <Button color='inherit' component={Link} to={blogsPath}>
               blogs
             </Button>
-            <Button edge="end" color="inherit" component={Link} to={usersPath}>
+            <Button edge='end' color='inherit' component={Link} to={usersPath}>
               users
             </Button>
           </Box>

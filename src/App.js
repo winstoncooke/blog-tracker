@@ -17,6 +17,7 @@ import BlogList from './components/BlogList';
 import BlogDetail from './components/BlogDetail';
 import Users from './components/Users';
 import User from './components/User';
+import RegistrationForm from './components/RegistrationForm';
 
 const path = {
   home: '/',
@@ -25,6 +26,7 @@ const path = {
   blogs: '/blogs',
   blog: '/blogs/:id',
   login: '/login',
+  register: '/register',
 };
 
 const App = () => {
@@ -69,6 +71,7 @@ const App = () => {
             path={path.login}
             element={user ? <Navigate to={'/'} /> : <LoginForm />}
           />
+          <Route path={path.register} element={<RegistrationForm />} />
           <Route path={path.blogs} element={<BlogList />} />
           <Route path={path.blog} element={<BlogDetail />} />
           <Route path={path.users} element={<Users />} />
