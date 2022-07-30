@@ -69,7 +69,10 @@ const App = () => {
             path={path.login}
             element={user ? <Navigate to={'/'} /> : <LoginForm />}
           />
-          <Route path={path.register} element={<RegistrationForm />} />
+          <Route
+            path={path.register}
+            element={user ? <Navigate to={'/'} /> : <RegistrationForm />}
+          />
           <Route path={path.blogs} element={<BlogList />} />
           <Route path={path.blog} element={<BlogDetail />} />
           <Route path={path.users} element={<Users />} />
