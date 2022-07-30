@@ -37,6 +37,8 @@ const BlogList = () => {
 
   return (
     <div>
+      <h2>Blogs</h2>
+
       <BlogFormLabel />
       <br></br>
       <BlogFilter />

@@ -63,8 +63,6 @@ const App = () => {
           usersPath={path.users}
         />
         {notification && <Notification />}
-        <h1>Blogs</h1>
-
         <Routes>
           <Route path={path.home} element={<BlogList />} />
           <Route
