@@ -16,7 +16,7 @@ import LoginForm from './components/LoginForm';
 import BlogList from './components/BlogList';
 import BlogDetail from './components/BlogDetail';
 import Users from './components/Users';
-import User from './components/User';
+import User from './components/UserDetail';
 import RegistrationForm from './components/RegistrationForm';
 
 const path = {
