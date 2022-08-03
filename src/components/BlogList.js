@@ -14,6 +14,7 @@ import {
 } from '@mui/material';
 
 const BlogList = () => {
+  const user = useSelector((state) => state.user);
   const blogs = useSelector((state) => state.blogs);
   const filter = useSelector((state) => state.filter);
   const dispatch = useDispatch();
@@ -37,7 +38,7 @@ const BlogList = () => {
 
   return (
     <div>
-      <BlogFormLabel />
+      {user ? <BlogFormLabel /> : null}
       <br></br>
       <BlogFilter />
       <br></br>

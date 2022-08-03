@@ -13,6 +13,7 @@ import {
 } from '@mui/material';
 
 const Comments = ({ blogId }) => {
+  const user = useSelector((state) => state.user);
   const comments = useSelector((state) => state.comments);
   const dispatch = useDispatch();
 
@@ -27,7 +28,7 @@ const Comments = ({ blogId }) => {
   return (
     <div>
       <br></br>
-      <CommentForm blogId={blogId} />
+      {user ? <CommentForm blogId={blogId} /> : null}
       <br></br>
       <TableContainer component={Paper}>
         <Table>
