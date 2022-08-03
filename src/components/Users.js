@@ -26,7 +26,9 @@ const User = () => {
         <Table>
           <TableBody>
             <TableRow>
-              <TableCell></TableCell>
+              <TableCell>
+                <strong>User</strong>
+              </TableCell>
               <TableCell>
                 <strong># of blogs</strong>
               </TableCell>

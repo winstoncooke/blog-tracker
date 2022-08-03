@@ -30,20 +30,26 @@ const User = () => {
   return (
     <div>
       <h2>{user.name}</h2>
-      <h3>added blogs</h3>
-      <TableContainer component={Paper}>
-        <Table>
-          <TableBody>
-            {user.blogs.map((blog) => (
-              <TableRow key={blog.id}>
-                <TableCell>
-                  <Link to={`/blogs/${blog.id}`}>{blog.title}</Link>
-                </TableCell>
-              </TableRow>
-            ))}
-          </TableBody>
-        </Table>
-      </TableContainer>
+      {user.blogs.length > 0 ? (
+        <div>
+          <h3>Added blogs</h3>
+          <TableContainer component={Paper}>
+            <Table>
+              <TableBody>
+                {user.blogs.map((blog) => (
+                  <TableRow key={blog.id}>
+                    <TableCell>
+                      <Link to={`/blogs/${blog.id}`}>{blog.title}</Link>
+                    </TableCell>
+                  </TableRow>
+                ))}
+              </TableBody>
+            </Table>
+          </TableContainer>
+        </div>
+      ) : (
+        <p>No blogs added</p>
+      )}
     </div>
   );
 };

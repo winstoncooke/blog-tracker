@@ -16,7 +16,8 @@ import LoginForm from './components/LoginForm';
 import BlogList from './components/BlogList';
 import BlogDetail from './components/BlogDetail';
 import Users from './components/Users';
-import User from './components/User';
+import User from './components/UserDetail';
+import RegistrationForm from './components/RegistrationForm';
 
 const path = {
   home: '/',
@@ -25,6 +26,7 @@ const path = {
   blogs: '/blogs',
   blog: '/blogs/:id',
   login: '/login',
+  register: '/register',
 };
 
 const App = () => {
@@ -61,13 +63,15 @@ const App = () => {
           usersPath={path.users}
         />
         {notification && <Notification />}
-        <h1>Blogs</h1>
-
         <Routes>
           <Route path={path.home} element={<BlogList />} />
           <Route
             path={path.login}
             element={user ? <Navigate to={'/'} /> : <LoginForm />}
+          />
+          <Route
+            path={path.register}
+            element={user ? <Navigate to={'/'} /> : <RegistrationForm />}
           />
           <Route path={path.blogs} element={<BlogList />} />
           <Route path={path.blog} element={<BlogDetail />} />
