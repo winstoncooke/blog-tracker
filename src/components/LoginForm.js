@@ -20,20 +20,20 @@ const LoginForm = () => {
 
       <form onSubmit={handleLogin}>
         <div>
-          <TextField label='username' {...username.props} />
+          <TextField label="username" {...username.props} />
         </div>
-        <br></br>
+        <br />
         <div>
-          <TextField label='password' type='password' {...password.props} />
+          <TextField label="password" type="password" {...password.props} />
         </div>
-        <br></br>
+        <br />
         <div>
-          <Button variant='contained' color='primary' type='submit'>
+          <Button variant="contained" color="primary" type="submit">
             login
           </Button>
         </div>
       </form>
-      <br></br>
+      <br />
       <div>
         New to Blog Tracker? <Link to={'/register'}>Sign Up</Link>
       </div>

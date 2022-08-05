@@ -34,7 +34,7 @@ const Togglable = forwardRef((props, refs) => {
       </div>
       <div style={showWhenVisible} className="togglableContent">
         {props.children}
-        <br></br>
+        <br />
         <Button
           variant="contained"
           color="primary"

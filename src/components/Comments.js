@@ -26,9 +26,9 @@ const Comments = ({ blogId }) => {
 
   return (
     <div>
-      <br></br>
+      <br />
       {user ? <CommentForm blogId={blogId} /> : null}
-      <br></br>
+      <br />
       <TableContainer component={Paper}>
         <Table>
           <TableBody>
@@ -46,12 +46,12 @@ const Comments = ({ blogId }) => {
                     <TableCell>
                       {/* After a new comment is added, the name appears blank */}
                       <strong>{comment.user.name}</strong>: {comment.text}
-                      <br></br>({formatDate(comment.date)})
+                      <br />({formatDate(comment.date)})
                     </TableCell>
                   ) : (
                     <TableCell>
                       {comment.text}
-                      <br></br>({formatDate(comment.date)})
+                      <br />({formatDate(comment.date)})
                     </TableCell>
                   )}
                 </TableRow>

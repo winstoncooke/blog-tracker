@@ -31,8 +31,8 @@ const CommentForm = ({ blogId }) => {
           className="commentInput"
           {...comment.props}
         />
-        <br></br>
-        <br></br>
+        <br />
+        <br />
         <Button
           variant="contained"
           color="primary"

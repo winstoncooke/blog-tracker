@@ -82,22 +82,22 @@ const RegistrationForm = () => {
 
       <form on onSubmit={handleForm}>
         <div>
-          <TextField label='Name' {...name.props} />
+          <TextField label="Name" {...name.props} />
         </div>
-        <br></br>
+        <br />
         <div>
-          <TextField label='Username' {...username.props} />
+          <TextField label="Username" {...username.props} />
         </div>
-        <br></br>
+        <br />
         <div>
-          <TextField label='Password' {...password.props} />
+          <TextField label="Password" {...password.props} />
         </div>
-        <br></br>
+        <br />
         <Button
-          variant='contained'
-          color='primary'
-          type='submit'
-          className='form'
+          variant="contained"
+          color="primary"
+          type="submit"
+          className="form"
         >
           Register
         </Button>

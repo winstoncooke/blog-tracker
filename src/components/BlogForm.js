@@ -56,15 +56,15 @@ const BlogForm = ({ onCreateSuccess }) => {
         <div>
           <TextField label="Title" {...title.props} />
         </div>
-        <br></br>
+        <br />
         <div>
           <TextField label="Author" {...author.props} />
         </div>
-        <br></br>
+        <br />
         <div>
           <TextField label="URL" {...url.props} />
         </div>
-        <br></br>
+        <br />
         <Button
           variant="contained"
           color="primary"
