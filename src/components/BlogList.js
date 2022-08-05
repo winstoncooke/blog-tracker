@@ -38,10 +38,15 @@ const BlogList = () => {
 
   return (
     <div>
-      {user ? <BlogFormLabel /> : null}
-      <br></br>
+      {user ? (
+        <>
+          <br />
+          <BlogFormLabel />
+        </>
+      ) : null}
+      <br />
       <BlogFilter />
-      <br></br>
+      <br />
       <TableContainer component={Paper}>
         <Table>
           <TableBody>

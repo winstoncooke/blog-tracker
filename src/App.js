@@ -62,7 +62,12 @@ const App = () => {
           blogsPath={path.blogs}
           usersPath={path.users}
         />
-        {notification && <Notification />}
+        {notification && (
+          <>
+            <br />
+            <Notification />
+          </>
+        )}
         <Routes>
           <Route path={path.home} element={<BlogList />} />
           <Route
