@@ -1,4 +1,3 @@
-/* eslint-disable indent */
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { getComments } from '../reducers/commentsReducer';
@@ -19,7 +18,7 @@ const Comments = ({ blogId }) => {
 
   useEffect(() => {
     dispatch(getComments(blogId));
-  }, [dispatch]);
+  }, [blogId, dispatch]);
 
   const formatDate = (dateString) => {
     return new Date(dateString).toLocaleString();
