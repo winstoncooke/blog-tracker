@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from 'react-redux';
-import { useMatch, useNavigate, Link } from 'react-router-dom';
+import { Link, useMatch, useNavigate } from 'react-router-dom';
 import { likeBlog, removeBlog } from '../reducers/blogsReducer';
 import Comments from './Comments';
 
@@ -28,17 +28,22 @@ const Blog = () => {
   };
 
   return (
-    <div className="blog-detail">
+    <div className='blog-detail'>
       <h2>
         {blog.title} - {blog.author}
       </h2>
       <div>
-        <a href={blog.url} className="blogUrl">
+        <a
+          href={blog.url}
+          target='_blank'
+          rel='noopener noreferrer'
+          className='blogUrl'
+        >
           {blog.url}
         </a>
-        <div className="blogLikes">
+        <div className='blogLikes'>
           Likes: {blog.likes} &nbsp;{' '}
-          <button onClick={() => onClickLike(blog)} className="addLikeButton">
+          <button onClick={() => onClickLike(blog)} className='addLikeButton'>
             like
           </button>
         </div>
@@ -48,7 +53,7 @@ const Blog = () => {
         {user && blog.user.username === user.username ? (
           <button
             onClick={() => onClickRemove(blog)}
-            className="removeBlogButton"
+            className='removeBlogButton'
           >
             remove
           </button>
